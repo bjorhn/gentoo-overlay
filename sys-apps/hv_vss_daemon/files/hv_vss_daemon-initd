@@ -1,4 +1,4 @@
-#!/sbin/runscript
+#!/sbin/openrc-run
 
 # path to hv_vss_daemon binary
 HV_VSS_BIN=/usr/sbin/hv_vss_daemon

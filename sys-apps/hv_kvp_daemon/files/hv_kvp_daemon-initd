@@ -1,4 +1,4 @@
-#!/sbin/runscript
+#!/sbin/openrc-run
 
 # path to hv_kvp_daemon binary
 HV_KVP_BIN=/usr/sbin/hv_kvp_daemon
