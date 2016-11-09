@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE repositories SYSTEM "/dtd/repositories.dtd">
+<repositories xmlns="" version="1.0">
+  <repo quality="experimental" status="unofficial">
+    <name><![CDATA[oz]]></name>
+    <description lang="en"><![CDATA[Oz gentoo-overlay]]></description>
+    <homepage>https://github.com/bjorhn/gentoo-overlay</homepage>
+    <owner type="person">
+      <name><![CDATA[Oz]]></name>
+    </owner>
+    <source type="git">https://github.com/bjorhn/gentoo-overlay.git</source>
+    <feed>https://github.com/bjorhn/gentoo-overlay/commits/master.atom</feed>
+  </repo>
+</repositories>
