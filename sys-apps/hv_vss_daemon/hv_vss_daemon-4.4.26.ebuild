@@ -36,6 +36,7 @@ src_unpack() {
   mkdir -p "${S}"/include/linux
   cp "${KERNEL_DIR}"/include/linux/hyperv.h "${S}"/include/linux
   cp "${KERNEL_DIR}"/include/uapi/linux/connector.h "${S}"/include/linux
+  cp "${KERNEL_DIR}"/include/uapi/linux/hyperv.h "${S}"/include/linux
 }
 
 src_prepare() {
