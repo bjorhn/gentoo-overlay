@@ -9,15 +9,15 @@ inherit linux-info
 DESCRIPTION="Key-value pair daemon for Hyper-V virtualized guests"
 HOMEPAGE="http://kernel.org"
 SRC_URI=""
-SLOT="4.4.26"
+SLOT="4.19.37"
 KEYWORDS="amd64 x86"
 
 CONFIG_CHECK="~HYPERV_UTILS"
 ERROR_HYPERV_UTILS="CONFIG_HYPERV_UTILS is not enabled. KVP daemon will not interact with the kernel."
 
 pkg_setup() {
-  if ! kernel_is 4 4 26 ; then
-    eerror "This version of KVP is designed to build against the 4.4.26 version of the kernel sources."
+  if ! kernel_is 4 19 37 ; then
+    eerror "This version of KVP is designed to build against the 4.19.37 version of the kernel sources."
     eerror "Please install the proper KVP version for your kernel."
     die
   fi

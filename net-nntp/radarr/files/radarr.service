@@ -1,0 +1,16 @@
+[Unit]
+Description=A Sonarr fork for movies.
+After=syslog.target network.target network-online.target
+
+[Service]
+User=radarr
+Group=radarr
+
+Type=simple
+ExecStart=/usr/bin/mono /usr/share/radarr/Radarr.exe -nobrowser
+TimeoutStopSec=20
+KillMode=process
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
