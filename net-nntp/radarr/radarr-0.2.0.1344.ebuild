@@ -18,7 +18,8 @@ RDEPEND="
 	media-video/mediainfo 
 	dev-db/sqlite"
 IUSE="+updater"
-S=${WORKDIR}/${PN}
+MY_PN=Radarr
+S=${WORKDIR}/${MY_PN}
 
 pkg_setup() {
 	enewgroup ${PN}
@@ -38,9 +39,9 @@ src_install() {
 	insinto /etc/logrotate.d
 	insopts -m0644 -o root -g root
 	newins "${FILESDIR}/${PN}.logrotate" ${PN}
-	
-	insinto "/usr/share/"
-	doins -r "${S}"
+
+	dodir  "/usr/share/${PN}"
+	cp -R "${WORKDIR}/${MY_PN}/." "${D}/usr/share/radarr" || die "Install failed!"
 
 	# Allow auto-updater, make source owned by radarr user.
 	if use updater; then
