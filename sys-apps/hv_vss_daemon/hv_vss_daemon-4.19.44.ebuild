@@ -6,19 +6,19 @@ EAPI=4
 
 inherit linux-info
 
-DESCRIPTION="Key-value pair daemon for Hyper-V virtualized guests"
+DESCRIPTION="VSS daemon for Hyper-V virtualized guests"
 HOMEPAGE="http://kernel.org"
 SRC_URI=""
-SLOT="4.19.37"
+SLOT="4.19.44"
 KEYWORDS="amd64 x86"
 
 CONFIG_CHECK="~HYPERV_UTILS"
-ERROR_HYPERV_UTILS="CONFIG_HYPERV_UTILS is not enabled. KVP daemon will not interact with the kernel."
+ERROR_HYPERV_UTILS="CONFIG_HYPERV_UTILS is not enabled. VSS daemon will not interact with the kernel."
 
 pkg_setup() {
-  if ! kernel_is 4 19 37 ; then
-    eerror "This version of KVP is designed to build against the 4.19.37 version of the kernel sources."
-    eerror "Please install the proper KVP version for your kernel."
+  if ! kernel_is 4 19 44 ; then
+    eerror "This version of VSS is designed to build against the 4.19.44 version of the kernel sources."
+    eerror "Please install the proper VSS version for your kernel."
     die
   fi
 }
@@ -26,7 +26,7 @@ pkg_setup() {
 src_unpack() {
   # C files
   mkdir -p "${S}"/src
-  cp "${KERNEL_DIR}"/tools/hv/*kvp*.c "${S}/src"
+  cp "${KERNEL_DIR}"/tools/hv/*vss*.c "${S}/src"
 
   # scripts
   mkdir -p "${S}"/scripts
@@ -45,8 +45,8 @@ src_prepare() {
       "${S}"/src/*.c
 
   # change scripts
-  sed -r -i 's/(hv_(get_(dns|dhcp)_info|set_ifconfig))/\/etc\/hyperv\/\1.sh/g' \
-      "${S}"/src/*.c
+# sed -r -i 's/(hv_(get_(dns|dhcp)_info|set_ifconfig))/\/etc\/hyperv\/\1.sh/g' \
+#     "${S}"/src/*.c
 }
 
 src_compile() {
